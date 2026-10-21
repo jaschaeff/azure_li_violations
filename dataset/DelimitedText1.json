@@ -1,0 +1,169 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "cartodb-query (1).csv",
+				"container": "bronze"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "the_geom",
+				"type": "String"
+			},
+			{
+				"name": "cartodb_id",
+				"type": "String"
+			},
+			{
+				"name": "the_geom_webmercator",
+				"type": "String"
+			},
+			{
+				"name": "objectid",
+				"type": "String"
+			},
+			{
+				"name": "posse_jobid",
+				"type": "String"
+			},
+			{
+				"name": "addressobjectid",
+				"type": "String"
+			},
+			{
+				"name": "parcel_id_num",
+				"type": "String"
+			},
+			{
+				"name": "casenumber",
+				"type": "String"
+			},
+			{
+				"name": "casecreateddate",
+				"type": "String"
+			},
+			{
+				"name": "casecompleteddate",
+				"type": "String"
+			},
+			{
+				"name": "council_district",
+				"type": "String"
+			},
+			{
+				"name": "casetype",
+				"type": "String"
+			},
+			{
+				"name": "casestatus",
+				"type": "String"
+			},
+			{
+				"name": "caseresponsibility",
+				"type": "String"
+			},
+			{
+				"name": "caseprioritydesc",
+				"type": "String"
+			},
+			{
+				"name": "violationnumber",
+				"type": "String"
+			},
+			{
+				"name": "violationdate",
+				"type": "String"
+			},
+			{
+				"name": "violationcode",
+				"type": "String"
+			},
+			{
+				"name": "violationcodetitle",
+				"type": "String"
+			},
+			{
+				"name": "violationstatus",
+				"type": "String"
+			},
+			{
+				"name": "violationresolutiondate",
+				"type": "String"
+			},
+			{
+				"name": "violationresolutioncode",
+				"type": "String"
+			},
+			{
+				"name": "mostrecentinvestigation",
+				"type": "String"
+			},
+			{
+				"name": "publicnov",
+				"type": "String"
+			},
+			{
+				"name": "opa_account_num",
+				"type": "String"
+			},
+			{
+				"name": "address",
+				"type": "String"
+			},
+			{
+				"name": "unit_type",
+				"type": "String"
+			},
+			{
+				"name": "unit_num",
+				"type": "String"
+			},
+			{
+				"name": "zip",
+				"type": "String"
+			},
+			{
+				"name": "censustract",
+				"type": "String"
+			},
+			{
+				"name": "opa_owner",
+				"type": "String"
+			},
+			{
+				"name": "systemofrecord",
+				"type": "String"
+			},
+			{
+				"name": "geocode_x",
+				"type": "String"
+			},
+			{
+				"name": "geocode_y",
+				"type": "String"
+			},
+			{
+				"name": "gdb_geomattr_data",
+				"type": "String"
+			},
+			{
+				"name": "underappeal",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,162 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "the_geom",
+				"type": "nvarchar"
+			},
+			{
+				"name": "cartodb_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "the_geom_webmercator",
+				"type": "nvarchar"
+			},
+			{
+				"name": "objectid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "posse_jobid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "addressobjectid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "parcel_id_num",
+				"type": "nvarchar"
+			},
+			{
+				"name": "casenumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "casecreateddate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "casecompleteddate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "council_district",
+				"type": "nvarchar"
+			},
+			{
+				"name": "casetype",
+				"type": "nvarchar"
+			},
+			{
+				"name": "casestatus",
+				"type": "nvarchar"
+			},
+			{
+				"name": "caseresponsibility",
+				"type": "nvarchar"
+			},
+			{
+				"name": "caseprioritydesc",
+				"type": "nvarchar"
+			},
+			{
+				"name": "violationnumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "violationdate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "violationcode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "violationcodetitle",
+				"type": "nvarchar"
+			},
+			{
+				"name": "violationstatus",
+				"type": "nvarchar"
+			},
+			{
+				"name": "violationresolutiondate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "violationresolutioncode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "mostrecentinvestigation",
+				"type": "nvarchar"
+			},
+			{
+				"name": "publicnov",
+				"type": "nvarchar"
+			},
+			{
+				"name": "opa_account_num",
+				"type": "nvarchar"
+			},
+			{
+				"name": "address",
+				"type": "nvarchar"
+			},
+			{
+				"name": "unit_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "unit_num",
+				"type": "nvarchar"
+			},
+			{
+				"name": "zip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "censustract",
+				"type": "nvarchar"
+			},
+			{
+				"name": "opa_owner",
+				"type": "nvarchar"
+			},
+			{
+				"name": "systemofrecord",
+				"type": "nvarchar"
+			},
+			{
+				"name": "geocode_x",
+				"type": "nvarchar"
+			},
+			{
+				"name": "geocode_y",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gdb_geomattr_data",
+				"type": "nvarchar"
+			},
+			{
+				"name": "underappeal",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "violations"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

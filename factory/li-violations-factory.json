@@ -1,0 +1,15 @@
+{
+	"name": "li-violations-factory",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f021f8df-d4b7-4ddc-a5bc-0ee2e9354b2e",
+		"tenantId": "6c4d949d-b91c-4c45-9aae-66d76443110d"
+	}
+}
