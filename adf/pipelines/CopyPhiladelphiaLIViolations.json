@@ -1,0 +1,118 @@
+{
+  "name": "CopyPhiladelphiaLIViolations",
+  "properties": {
+    "parameters": {
+      "storageUrl": {
+        "type": "string"
+      },
+      "pageSize": {
+        "type": "int",
+        "defaultValue": 50000
+      }
+    },
+    "variables": {
+      "offset": {
+        "type": "Integer",
+        "defaultValue": 0
+      },
+      "done": {
+        "type": "Boolean",
+        "defaultValue": false
+      }
+    },
+    "activities": [
+      {
+        "name": "CopyPages",
+        "type": "Until",
+        "typeProperties": {
+          "expression": {
+            "value": "@equals(variables('done'),true)",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "name": "CopyPage",
+              "type": "Copy",
+              "typeProperties": {
+                "source": {
+                  "type": "RestSource",
+                  "requestMethod": "GET"
+                },
+                "sink": {
+                  "type": "JsonSink",
+                  "storeSettings": {
+                    "type": "AzureBlobFSWriteSettings"
+                  },
+                  "formatSettings": {
+                    "type": "JsonWriteSettings",
+                    "filePattern": "setOfObjects"
+                  }
+                }
+              },
+              "inputs": [
+                {
+                  "referenceName": "PhiladelphiaLIViolations",
+                  "type": "DatasetReference",
+                  "parameters": {
+                    "pageSize": "@pipeline().parameters.pageSize",
+                    "offset": "@variables('offset')"
+                  }
+                }
+              ],
+              "outputs": [
+                {
+                  "referenceName": "RawLIViolations",
+                  "type": "DatasetReference",
+                  "parameters": {
+                    "storageUrl": "@pipeline().parameters.storageUrl",
+                    "offset": "@variables('offset')"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "SetDone",
+              "type": "SetVariable",
+              "dependsOn": [
+                {
+                  "activity": "CopyPage",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ],
+              "typeProperties": {
+                "variableName": "done",
+                "value": {
+                  "value": "@less(int(activity('CopyPage').output.rowsRead),int(pipeline().parameters.pageSize))",
+                  "type": "Expression"
+                }
+              }
+            },
+            {
+              "name": "AdvanceOffset",
+              "type": "SetVariable",
+              "dependsOn": [
+                {
+                  "activity": "SetDone",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ],
+              "typeProperties": {
+                "variableName": "offset",
+                "value": {
+                  "value": "@add(variables('offset'),pipeline().parameters.pageSize)",
+                  "type": "Expression"
+                }
+              }
+            }
+          ],
+          "timeout": "0.12:00:00"
+        }
+      }
+    ],
+    "annotations": []
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "ADLSGen2",
+  "properties": {
+    "parameters": {
+      "storageUrl": {
+        "type": "string"
+      }
+    },
+    "type": "AzureBlobFS",
+    "typeProperties": {
+      "url": "@{linkedService().storageUrl}",
+      "authenticationType": "SystemAssignedManagedIdentity"
+    }
+  }
+}
