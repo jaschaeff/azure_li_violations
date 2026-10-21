@@ -1,0 +1,11 @@
+{
+  "name": "PhiladelphiaOpenData",
+  "properties": {
+    "type": "RestService",
+    "typeProperties": {
+      "url": "https://data.phila.gov/resource/",
+      "enableServerCertificateValidation": true,
+      "authenticationType": "Anonymous"
+    }
+  }
+}

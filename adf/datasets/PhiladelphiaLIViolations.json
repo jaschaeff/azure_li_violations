@@ -1,0 +1,21 @@
+{
+  "name": "PhiladelphiaLIViolations",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "PhiladelphiaOpenData",
+      "type": "LinkedServiceReference"
+    },
+    "parameters": {
+      "pageSize": {
+        "type": "int"
+      },
+      "offset": {
+        "type": "int"
+      }
+    },
+    "type": "RestResource",
+    "typeProperties": {
+      "relativeUrl": "@concat('wjz9-h9sj.json?$limit=',string(dataset().pageSize),'&$offset=',string(dataset().offset))"
+    }
+  }
+}

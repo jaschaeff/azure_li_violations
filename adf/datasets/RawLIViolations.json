@@ -1,0 +1,29 @@
+{
+  "name": "RawLIViolations",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "ADLSGen2",
+      "type": "LinkedServiceReference",
+      "parameters": {
+        "storageUrl": "@dataset().storageUrl"
+      }
+    },
+    "parameters": {
+      "storageUrl": {
+        "type": "string"
+      },
+      "offset": {
+        "type": "int"
+      }
+    },
+    "type": "Json",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobFSLocation",
+        "fileSystem": "raw",
+        "folderPath": "li-violations",
+        "fileName": "@concat('page-',string(dataset().offset),'.json')"
+      }
+    }
+  }
+}
